@@ -10,7 +10,20 @@ h1, h2, h3, h4, h5, h6 {
   font-family: 'Roboto', sans-serif;
   color: #4b719c; }
 
+h3 {
+  text-decoration: underline; }
+
+a {
+  color: #4b719c; }
+
+a:hover {
+  color: #87a5c6; }
+
 .container-fluid {
   margin-top: 5vh; }
+
+.tags-pill {
+  background-color: #e47490;
+  color: #f0f0df; }
 
 /*# sourceMappingURL=custom.css.map */

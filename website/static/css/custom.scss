@@ -1,5 +1,8 @@
 $white-color: #f0f0df;
 $blue-color: #4b719c;
+$lighter-blue-color: lighten( $blue-color, 20% );
+$darker-blue-color: darken( $blue-color, 10% );
+
 $red-color: #e47490;
 $yellow-color: #f7df89;
 $orange-color: #f9a78e;
@@ -20,6 +23,23 @@ h1, h2, h3, h4, h5, h6 {
   color: $blue-color;
 }
 
+h3 {
+  text-decoration: underline;
+}
+
+a {
+   color: $blue-color;
+}
+
+a:hover{
+ color: $lighter-blue-color;
+}
+
 .container-fluid {
   margin-top: 5vh;
+}
+
+.tags-pill{
+  background-color: $red-color;
+  color: $white-color
 }

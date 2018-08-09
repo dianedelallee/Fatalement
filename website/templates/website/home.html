@@ -6,11 +6,28 @@
 
 
 {% block body_container %}
-
+  {% load get_list %}
   <div class="row">
     <div class="col-md-8 offset-md-2 col-sm-10 offset-sm-1">
-      <h1>Welcome</h1>
-      <p> - </p>
+      <h1>Recents Posts</h1>
+      <hr/>
+
+
+      {% for article in articles %}
+        <h3><a href="">{{ article.name }}</a></h3>
+        <p>{{ article.desc }}</p>
+
+        <small>{{ article.date }}</small>
+
+          {% for tag in article.tags|get_list %}
+            <span class="badge badge-pill tags-pill">{{ tag }}</span>
+          {% endfor %}
+
+
+        <hr/>
+      {% endfor %}
+
+
     </div>
 
   </div>
