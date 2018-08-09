@@ -1,3 +1,11 @@
 from django.contrib import admin
 
-# Register your models here.
+from website.models.article import Article
+
+
+
+class ArticleAdmin(admin.ModelAdmin):
+    list_display = ['name','desc',  'date', 'tags',]
+
+admin.site.register(Article, ArticleAdmin)
+
