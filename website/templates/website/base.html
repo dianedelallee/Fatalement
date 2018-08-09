@@ -25,12 +25,21 @@
 <!-- custom css -->
 <link rel="stylesheet" href="{% static 'css/custom.css' %}">
 
+<!-- fonts -->
+<link href="https://fonts.googleapis.com/css?family=Lato|Roboto" rel="stylesheet">
+
 
 </head>
 <body>
 
+{% include 'website/menu.html' %}
+
+
+
+
 <div class="container-fluid">
-  Welcome
+  {% block body_container %} {% endblock %}
+
 </div>
 
 

@@ -1,5 +1,16 @@
 body {
-  background-color: #000;
-  color: #fff; }
+  font-family: 'Lato', sans-serif;
+  background-color: #f0f0df;
+  color: #2f2f2f; }
+
+.navbar {
+  font-family: 'Roboto', sans-serif; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Roboto', sans-serif;
+  color: #4b719c; }
+
+.container-fluid {
+  margin-top: 5vh; }
 
 /*# sourceMappingURL=custom.css.map */
