@@ -23,7 +23,6 @@
           <span class="badge badge-pill tags-pill">{{ tag }}</span>
         {% endfor %}
 
-
         <hr/>
       {% endfor %}
 
@@ -61,7 +60,7 @@
               </li>
             {% else %}
               <li class="page-item disabled">
-                <a class="page-link" href="#" tabindex="-1" >Next</a>
+                <a class="page-link" href="#" tabindex="-1">Next</a>
               </li>
             {% endif %}
 
@@ -81,6 +80,14 @@
 
   </div>
 
+  {% if not articles %}
+    <div class="row">
+      <div class="col-md-8 offset-md-2 col-sm-10 offset-sm-1 info-search">
 
+        <h4 id="no-decoration">Sorry, 0 article found</h4>
 
+      </div>
+    </div>
+
+  {% endif %}
 {% endblock %}
