@@ -1,6 +1,6 @@
 body {
   font-family: 'Lato', sans-serif;
-  background-color: #f0f0df;
+  background-color: #F3F3F3;
   color: #2f2f2f; }
 
 .navbar {
@@ -24,6 +24,15 @@ a:hover {
 
 .tags-pill {
   background-color: #e47490;
-  color: #f0f0df; }
+  color: #F3F3F3; }
+
+.pagination li a, .pagination li span {
+  border: 1px solid #4b719c;
+  color: #4b719c; }
+.pagination li a:hover {
+  color: #87a5c6; }
+.pagination .page-item.active .page-link {
+  background-color: #e47490;
+  border: 1px solid #e47490; }
 
 /*# sourceMappingURL=custom.css.map */
