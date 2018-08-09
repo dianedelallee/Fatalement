@@ -40,6 +40,13 @@ a:hover {
   margin-top: 5vh;
 }
 
+footer {
+  border-top: 2px solid $blue-color;
+  height: 80px;
+  line-height: 80px;
+  text-align: center;
+}
+
 // article list
 .tags-pill {
   background-color: $red-color;

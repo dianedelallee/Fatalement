@@ -22,6 +22,12 @@ a:hover {
 .container-fluid {
   margin-top: 5vh; }
 
+footer {
+  border-top: 2px solid #4b719c;
+  height: 80px;
+  line-height: 80px;
+  text-align: center; }
+
 .tags-pill {
   background-color: #e47490;
   color: #F3F3F3; }
