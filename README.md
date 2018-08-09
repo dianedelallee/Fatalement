@@ -7,6 +7,6 @@ create custom.scss
 made your modifications
 launch command : 
 
-```sass --watch app/sass:public/stylesheets```
+```sass --watch website/static/css/custom.scss:website/static/css/custom.css```
 
 in your template import the css file.

@@ -3,7 +3,7 @@ $blue-color: #4b719c;
 $lighter-blue-color: lighten($blue-color, 20%);
 $darker-blue-color: darken($blue-color, 20%);
 $red-color: #e47490;
-$lighter-red-color: lighten($red-color, 20%);
+$lighter-red-color: lighten($red-color, 10%);
 $darker-red-color: darken($red-color, 20%);
 $yellow-color: #f7df89;
 $orange-color: #f9a78e;
@@ -53,15 +53,33 @@ a:hover {
       border: 1px solid $blue-color;
       color: $blue-color;
     }
-    a:hover{
+    a:hover {
       color: $lighter-blue-color;
     }
   }
-  .page-item.active  {
-  .page-link{
-    background-color: $red-color;
-    border: 1px solid $red-color;
+  .page-item.active {
+    .page-link {
+      background-color: $red-color;
+      border: 1px solid $red-color;
+    }
+
+  }
+}
+
+
+//about page
+.about{
+  ul{
+    list-style-type: none;
   }
 
-}
+  a{
+    color: $red-color;
+  }
+  a:hover{
+    color: $lighter-red-color;
+  }
+  img {
+    width: 150px;
+  }
 }

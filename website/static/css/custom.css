@@ -35,4 +35,13 @@ a:hover {
   background-color: #e47490;
   border: 1px solid #e47490; }
 
+.about ul {
+  list-style-type: none; }
+.about a {
+  color: #e47490; }
+.about a:hover {
+  color: #ec9fb2; }
+.about img {
+  width: 150px; }
+
 /*# sourceMappingURL=custom.css.map */

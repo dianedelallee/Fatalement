@@ -1,0 +1,42 @@
+{% extends 'website/base.html' %}
+
+{% block title %}
+  - About
+{% endblock %}
+
+{% block body_container %}
+{% load staticfiles %}
+  <div class="row">
+    <div class="col-md-8 offset-md-2 col-sm-10 offset-sm-1">
+      <div class="row about">
+
+
+        <div class="col-md-5">
+          <h2>Diane Delallée</h2>
+          <br>
+           <img src="{% static 'img/diane_delallee_portait.jpg' %}">
+          <br><br>
+          <h5>Junior Web developer at Pix4d</h5>
+
+          <ul>
+            <li><i class="fas fa-map-marker-alt"></i> Lausanne, CH</li>
+            <li><a href="https://github.com/dianedelallee"><i class="fab fa-github"></i> Github</a></li>
+            <li><a href="https://twitter.com/dianedelallee"><i class="fab fa-twitter"></i> Twitter</a></li>
+            <li><a href="https://www.linkedin.com/in/dianedelallee/"><i class="fab fa-linkedin"></i> Linkedin</a></li>
+            <li><a href="https://stackoverflow.com/users/4640061/diane-delall%c3%a9e"><i class="fab fa-stack-overflow"></i> Stack Overflow</a></li>
+          </ul>
+
+
+        </div>
+
+
+        <div class="col-md-7">
+          {{ my_profile.text|safe }}
+        </div>
+
+
+
+      </div>
+    </div>
+  </div>
+{% endblock %}
