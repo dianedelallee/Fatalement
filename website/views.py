@@ -29,3 +29,11 @@ def about(request):
         request, 'website/about.html',
         {'my_profile': my_profile}
     )
+
+
+def details_page(request, pk):
+    article = Article.objects.get(id=pk)
+    return render(
+        request, 'website/details_article.html',
+        {'article': article}
+    )

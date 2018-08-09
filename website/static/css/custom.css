@@ -26,6 +26,13 @@ a:hover {
   background-color: #e47490;
   color: #F3F3F3; }
 
+.article {
+  font-size: 1.25em;
+  margin-bottom: 10vh; }
+
+.back_to_list {
+  padding-top: 12vh; }
+
 .pagination li a, .pagination li span {
   border: 1px solid #4b719c;
   color: #4b719c; }

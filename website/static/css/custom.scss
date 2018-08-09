@@ -40,10 +40,20 @@ a:hover {
   margin-top: 5vh;
 }
 
-//article list
+// article list
 .tags-pill {
   background-color: $red-color;
   color: $white-color
+}
+
+// article
+.article {
+  font-size: 1.25em;
+  margin-bottom: 10vh;
+}
+
+.back_to_list {
+  padding-top: 12vh;
 }
 
 //pagination color
@@ -66,17 +76,16 @@ a:hover {
   }
 }
 
-
 //about page
-.about{
-  ul{
+.about {
+  ul {
     list-style-type: none;
   }
 
-  a{
+  a {
     color: $red-color;
   }
-  a:hover{
+  a:hover {
     color: $lighter-red-color;
   }
   img {

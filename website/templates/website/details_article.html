@@ -1,0 +1,37 @@
+{% extends 'website/base.html' %}
+
+{% block title %}
+  - Article
+{% endblock %}
+
+
+{% block body_container %}
+  {% load get_list %}
+  <div class="row">
+
+    <div class="back_to_list col-md-2 offset-md-1 col-sm-2">
+
+      <a href="{% url 'home' %}">
+        <button type="button" class="btn btn-outline-dark">Back to articles</button>
+      </a>
+    </div>
+
+    <div class="article col-md-6  col-sm-8 ">
+      <h1>{{ article.name }}</h1>
+      <hr/>
+
+      {{ article.text|safe }} <br>
+      <hr/>
+      <small><b>Updated: </b>{{ article.date }}</small>
+      <br>
+      <b>Tags:</b>
+      {% for tag in article.tags|get_list %}
+        <span class="badge badge-pill tags-pill">{{ tag }}</span>
+      {% endfor %}
+    </div>
+
+  </div>
+
+
+
+{% endblock %}

@@ -14,7 +14,7 @@
 
 
       {% for article in articles %}
-        <h3><a href="">{{ article.name }}</a></h3>
+        <h3><a href="{% url 'article' article.id %}">{{ article.name }}</a></h3>
         <p>{{ article.desc }}</p>
 
         <small>{{ article.date }}</small>
