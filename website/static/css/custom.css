@@ -28,10 +28,6 @@ footer {
   line-height: 80px;
   text-align: center; }
 
-.tags-pill {
-  background-color: #e47490;
-  color: #F3F3F3; }
-
 #no-decoration {
   text-decoration: none; }
 
@@ -39,9 +35,21 @@ footer {
   margin-top: 5vh;
   margin-bottom: 53vh; }
 
+.list_articles .tags-pill {
+  background-color: #e47490;
+  color: #F3F3F3; }
+.list_articles h3 {
+  transition: font-size 0.4s ease; }
+.list_articles h3:hover {
+  font-size: 2em; }
+
 .article {
   font-size: 1.25em;
-  margin-bottom: 10vh; }
+  margin-bottom: 10vh;
+  text-align: left; }
+  .article .card {
+    box-shadow: 2px 2px 8px #7c7c7c;
+    margin-bottom: 1vh; }
 
 .back_to_list {
   padding-top: 12vh; }
@@ -58,9 +66,11 @@ footer {
 .about ul {
   list-style-type: none; }
 .about a {
-  color: #e47490; }
+  color: #e47490;
+  transition: font-size 0.4s ease; }
 .about a:hover {
-  color: #ec9fb2; }
+  color: #ec9fb2;
+  font-size: 1.1em; }
 .about img {
   width: 150px; }
 
