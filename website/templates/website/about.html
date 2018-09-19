@@ -7,15 +7,17 @@
 {% block body_container %}
 {% load staticfiles %}
   <div class="row">
+
+
     <div class="col-md-8 offset-md-2 col-sm-10 offset-sm-1">
       <div class="row about">
 
-
         <div class="col-md-5">
-          <h2>Diane Delallée</h2>
+          <h2 class="animated bounceInDown">Diane Delallée</h2>
           <br>
-           <img src="{% static 'img/diane_delallee_portait.jpg' %}">
+           <img class="animated bounceInLeft" src="{% static 'img/diane_delallee_portait.jpg' %}">
           <br><br>
+          <div class="animated bounceInUp">
           <h5>Junior Web developer at Pix4d</h5>
 
           <ul>
@@ -26,7 +28,7 @@
             <li><a href="https://stackoverflow.com/users/4640061/diane-delall%c3%a9e"><i class="fab fa-stack-overflow"></i> Stack Overflow</a></li>
             <li><a href="https://codepen.io/dianedelallee/#"><i class="fab fa-codepen"></i> Codepen</a></li>
           </ul>
-
+</div>
 
         </div>
 
