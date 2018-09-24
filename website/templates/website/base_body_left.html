@@ -1,0 +1,28 @@
+{% load staticfiles %}
+
+<h1 class="sidebar-heading">
+  <a href="{% url 'home' %}"><img src="{% static 'img/fatalement.png' %}"></a>
+</h1>
+
+
+<ul class="sidebar-menu">
+  <li id="li_home" class="active">
+    <a href="{% url 'home' %}">Home</a>
+  </li>
+  <li id="li_about">
+    <a href="{% url 'about' %}">About</a>
+  </li>
+  <li>
+    <a href="mailto:diane.delallee@gmail.com?subject=Bonjour Diane">Get in touch</a>
+  </li>
+</ul>
+
+
+
+
+<div class="copyright">
+  <small class="credit">
+    &copy; 2018 Diane Delallée
+  </small>
+
+</div>

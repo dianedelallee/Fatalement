@@ -8,22 +8,25 @@
 {% block body_container %}
   {% load get_list %}
   <div class="row">
-    <div class="list_articles col-md-8 offset-md-2 col-sm-10 offset-sm-1">
-      <h1>Recents Posts</h1>
+    <div class="list_articles col-md-10 offset-md-2 col-sm-10 offset-sm-1">
+      <h1 class="animated bounceInDown">Recents Posts</h1>
       <hr/>
 
 
       {% for article in articles %}
-        <h3><a href="{% url 'article' article.id %}">{{ article.name }}</a></h3>
-        <p>{{ article.desc }}</p>
 
-        <small>{{ article.date }}</small>
+        <div class="art animated {% if forloop.counter0|divisibleby:2 %} bounceInLeft{% else %} bounceInRight{% endif %}">
+          <h3> <a href="{% url 'article' article.id %}"> {{ article.name }}</a></h3>
+          <p>{{ article.desc }}</p>
 
-        {% for tag in article.tags|get_list %}
-          <span class="badge badge-pill tags-pill">{{ tag }}</span>
-        {% endfor %}
+          <small>{{ article.date }}</small>
 
-        <hr/>
+          {% for tag in article.tags|get_list %}
+            <span class="badge badge-pill tags-pill">{{ tag }}</span>
+          {% endfor %}
+
+          <hr/>
+        </div>
       {% endfor %}
 
 
@@ -91,6 +94,10 @@
 
   {% endif %}
 
+  <script>
 
+    document.getElementById("li_about").classList.remove("active");
+    document.getElementById("li_home").classList.add("active");
+  </script>
 
 {% endblock %}

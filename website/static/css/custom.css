@@ -1,20 +1,18 @@
 body {
   font-family: 'Lato', sans-serif;
-  background-color: #F3F3F3;
-  color: #2f2f2f; }
+  background-color: #F0F4F4;
+  color: #555b6e; }
 
 .navbar {
   font-family: 'Roboto', sans-serif; }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Roboto', sans-serif;
-  color: #4b719c; }
-
-h3 {
-  text-decoration: underline; }
+  color: #555b6e;
+  font-weight: 400; }
 
 a {
-  color: #4b719c; }
+  color: #66D9EF; }
 
 a:hover {
   color: #87a5c6; }
@@ -28,6 +26,15 @@ footer {
   line-height: 80px;
   text-align: center; }
 
+.green {
+  color: #A6E22D; }
+
+.sidebar-heading img {
+  width: 200px; }
+
+.small-navbar-heading img {
+  width: 100px; }
+
 #no-decoration {
   text-decoration: none; }
 
@@ -36,19 +43,19 @@ footer {
   margin-bottom: 53vh; }
 
 .list_articles .tags-pill {
-  background-color: #e47490;
+  background-color: #ff0000;
   color: #F3F3F3; }
-.list_articles h3 {
-  transition: font-size 0.4s ease; }
-.list_articles h3:hover {
-  font-size: 2em; }
+
+.art h3 a:before {
+  font-family: FontAwesome;
+  content: "\f120"; }
 
 .article {
   font-size: 1.25em;
   margin-bottom: 10vh;
   text-align: left; }
   .article .card {
-    box-shadow: 2px 2px 8px #7c7c7c;
+    box-shadow: 2px 2px 8px white;
     margin-bottom: 1vh; }
 
 .back_to_list {
@@ -60,18 +67,29 @@ footer {
 .pagination li a:hover {
   color: #87a5c6; }
 .pagination .page-item.active .page-link {
-  background-color: #e47490;
-  border: 1px solid #e47490; }
+  background-color: #ff0000;
+  border: 1px solid #ff0000; }
 
 .about ul {
   list-style-type: none; }
 .about a {
-  color: #e47490;
-  transition: font-size 0.4s ease; }
+  color: #cc0000;
+  transition: font-color 0.4s ease; }
 .about a:hover {
-  color: #ec9fb2;
-  font-size: 1.1em; }
+  color: #ff8080;
+  text-decoration: none; }
 .about img {
   width: 150px; }
+.about h2, .about h5 {
+  color: #555b6e; }
+
+.code {
+  border: 1px solid #000000;
+  background: #555b6e;
+  color: #AABBBB; }
+
+@media screen and (max-width: 500px) {
+  .sidebar-heading img {
+    width: 150px; } }
 
 /*# sourceMappingURL=custom.css.map */

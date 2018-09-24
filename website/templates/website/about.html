@@ -5,48 +5,65 @@
 {% endblock %}
 
 {% block body_container %}
-{% load staticfiles %}
+  {% load staticfiles %}
   <div class="row">
 
 
-    <div class="col-md-8 offset-md-2 col-sm-10 offset-sm-1">
+    <div class="col-md-12 col-sm-10 offset-sm-1">
       <div class="row about">
+        <div class="list_articles col-md-10 offset-md-2 col-sm-10 offset-sm-1">
+          <h1 class="animated bounceInDown">Diane Delallée</h1>
+          <hr/>
+          <div class="col-md-5">
+            <img class="animated bounceInLeft" src="{% static 'img/diane_delallee_portait.jpg' %}">
+            <br><br>
+            <div class="animated bounceInUp">
+              <h5>Junior Web Developer at <a href="https://pix4d.com/" target="_blank"><span
+                  class="green">Pix4d</span></a></h5>
 
-        <div class="col-md-5">
-          <h2 class="animated bounceInDown">Diane Delallée</h2>
-          <br>
-           <img class="animated bounceInLeft" src="{% static 'img/diane_delallee_portait.jpg' %}">
-          <br><br>
-          <div class="animated bounceInUp">
-          <h5>Junior Web developer at Pix4d</h5>
+              <ul>
+                <li><i class="fas fa-map-marker-alt"></i> Lausanne, CH</li>
+              </ul>
 
-          <ul>
-            <li><i class="fas fa-map-marker-alt"></i> Lausanne, CH</li>
-            <li><a href="https://github.com/dianedelallee"><i class="fab fa-github"></i> Github</a></li>
-            <li><a href="https://twitter.com/dianedelallee"><i class="fab fa-twitter"></i> Twitter</a></li>
-            <li><a href="https://www.linkedin.com/in/dianedelallee/"><i class="fab fa-linkedin"></i> Linkedin</a></li>
-            <li><a href="https://stackoverflow.com/users/4640061/diane-delall%c3%a9e"><i class="fab fa-stack-overflow"></i> Stack Overflow</a></li>
-            <li><a href="https://codepen.io/dianedelallee/#"><i class="fab fa-codepen"></i> Codepen</a></li>
-          </ul>
-</div>
+              <p class="social">
+                <a href="https://codepen.io/dianedelallee/#" data-animate-hover="pulse"
+                   class="external codepen"> <i class="fab fa-codepen"></i> </a>
+
+                <a href="https://www.linkedin.com/in/dianedelallee/" data-animate-hover="pulse"
+                   class="external linkedin"> <i class="fab fa-linkedin"></i> </a>
+
+                <a href="https://twitter.com/dianedelallee" data-animate-hover="pulse"
+                   class="external twitter"> <i class="fab fa-twitter"></i> </a>
+
+                <a href="https://github.com/dianedelallee" data-animate-hover="pulse"
+                   class="external github"> <i class="fab fa-github"></i> </a>
+
+                <a href="https://stackoverflow.com/users/4640061/diane-delall%c3%a9e"
+                   data-animate-hover="pulse" class="external stackoverflow"> <i
+                    class="fab fa-stack-overflow"></i> </a>
+
+
+                <a href="mailto:diane.delallee@gmail.com?subject=Bonjour Diane"
+                   data-animate-hover="pulse" class="email"> <i class="fa fa-envelope"></i> </a>
+              </p>
+            </div>
+
+          </div>
+
+
+          <div class="col-md-7 animated bounceInRight">
+            {{ my_profile.text|safe }}
+          </div>
+
 
         </div>
-
-
-        <div class="col-md-7">
-          {{ my_profile.text|safe }}
-        </div>
-
-
-
       </div>
     </div>
-  </div>
 
 
-  <script>
-    document.getElementById("li_home").classList.remove("active");
-    document.getElementById("li_about").classList.add("active");
+    <script>
+      document.getElementById("li_home").classList.remove("active");
+      document.getElementById("li_about").classList.add("active");
 
-  </script>
+    </script>
 {% endblock %}

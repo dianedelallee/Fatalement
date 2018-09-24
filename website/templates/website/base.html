@@ -10,50 +10,74 @@
 
   {% load staticfiles %}
   <meta name="description" content="diane, delallée, Pix4D, web developer, Lausanne">
-<meta name="robots" content="all,follow">
+  <meta name="robots" content="all,follow">
 
-  <!-- bootstrap -->
+  <!-- Bootstrap-->
+  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+  <!-- Google fonts - Open Sans-->
   <link rel="stylesheet"
-        href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
-        crossorigin="anonymous">
-  <!-- fontawesome -->
+        href="https://fonts.googleapis.com/css?family=Lato|Roboto:400,300,700,400italic">
+  <!-- Font Awesome CSS-->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
         integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
         crossorigin="anonymous">
- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
-<!-- custom css -->
-<link rel="stylesheet" href="{% static 'css/custom.css' %}">
-
-<!-- fonts -->
-<link href="https://fonts.googleapis.com/css?family=Lato|Roboto" rel="stylesheet">
+  <!-- owl carousel-->
+  <link rel="stylesheet" href="{% static 'css/owl.carousel.css' %}">
+  <link rel="stylesheet" href="{% static 'css/owl.theme.css' %}">
+  <!-- theme stylesheet-->
+  <link rel="stylesheet" href="{% static 'css/style.css' %}" id="theme-stylesheet">
+  <!-- Custom stylesheet - for your changes-->
+  <link rel="stylesheet" href="{% static 'css/custom.css' %}">
+  <!-- Favicon-->
+  <link rel="shortcut icon" href="">
+  <link rel="stylesheet" href="{% static 'css/animate.css' %}">
 
 
 </head>
 <body>
 
-{% include 'website/menu.html' %}
+<div id="all">
+  <div class="container-fluid">
+    <div class="row row-offcanvas row-offcanvas-left">
+      <!--   *** SIDEBAR ***-->
+      <div id="sidebar" class="col-xs-6 col-sm-4 col-md-3 sidebar-offcanvas">
+        <div class="sidebar-content">
+          {% include 'website/base_body_left.html' %}
+        </div>
+      </div>
+      <!--   *** SIDEBAR END ***  -->
+      <div class="col-xs-12 col-sm-8 col-md-9 content-column">
+        <div class="small-navbar visible-xs">
+          <button type="button" data-toggle="offcanvas" class="btn btn-ghost pull-left"><i
+              class="fa fa-align-left"> </i>Menu
+          </button>
+          <h1 class="small-navbar-heading"><a href="{% url 'home' %}"><img
+              src="{% static 'img/fatalement.png' %}"></a></h1>
+        </div>
 
+        {% block body_container %}  {% endblock %}
 
-
-
-<div class="container-fluid">
-  {% block body_container %} {% endblock %}
-
+      </div>
+    </div>
+  </div>
 </div>
 
-{% include 'website/footer.html' %}
 
-
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
         integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
         crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
-        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-        crossorigin="anonymous"></script>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<script src="{% static 'js/jquery.cookie.js' %}"></script>
+<script src="{% static 'js/ekko-lightbox.js' %}"></script>
+<script src="{% static 'js/jquery.scrollTo.min.js' %}"></script>
+<script src="{% static 'js/masonry.pkgd.min.js' %}"></script>
+<script src="{% static 'js/imagesloaded.pkgd.min.js' %}"></script>
+<script src="{% static 'js/owl.carousel.min.js' %}"></script>
+<script src="{% static 'js/front.js' %}"></script>
 
 </body>
 </html>
