@@ -1,7 +1,7 @@
 {% load staticfiles %}
 
 <h1 class="sidebar-heading">
-  <a href="{% url 'home' %}"><img src="{% static 'img/fatalement.png' %}"></a>
+  <a href="{% url 'home' %}"><img src="{% static 'img/fatalement.png' %}" alt="fatalement logo"></a>
 </h1>
 
 
@@ -9,15 +9,32 @@
   <li id="li_home" class="active">
     <a href="{% url 'home' %}">Home</a>
   </li>
+  <li id="li_projects">
+    <a href="{% url 'projects' %}">Projects</a>
+  </li>
   <li id="li_about">
     <a href="{% url 'about' %}">About</a>
   </li>
   <li>
-    <a href="mailto:diane.delallee@gmail.com?subject=Bonjour Diane">Get in touch</a>
+    <a href="mailto:diane.delallee@gmail.com?subject=Bonjour_Diane">Get in touch</a>
   </li>
 </ul>
 
 
+<form class="form-inline my-2 my-lg-0" method='GET' action="{% url 'search' %}">
+  <input class="form-control mr-sm-2" type="search" name="search" placeholder="Search"
+         aria-label="Search">
+  <button class="btn btn-default my-2 my-sm-0" type="submit"><i class="fas fa-search"></i>
+  </button>
+</form>
+
+<hr>
+<div class="switch">
+	<input id="which_theme" type="checkbox" name="toggle" checked>
+	<label for="which_theme"><i></i></label>
+	<span></span>
+</div>
+<hr>
 
 
 <div class="copyright">
@@ -26,3 +43,5 @@
   </small>
 
 </div>
+
+

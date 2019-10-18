@@ -1,0 +1,81 @@
+{% extends 'website/base.html' %}
+
+{% block title %}
+  - Project
+{% endblock %}
+
+
+
+{% block body_container %}
+    {% load staticfiles %}
+  {% load get_list %}
+  <div class="row">
+    <div class="list_articles col-md-10 offset-md-2 col-sm-10 offset-sm-1">
+      <h1 class="animated bounceInDown">Projects</h1>
+      <hr/>
+
+
+
+      {% for p in all_projects %}
+        {% if p.display == 'full_image' %}
+
+          <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 masonry-item">
+            <div class="box-masonry">
+              <a href="{% url 'project_detail' p.id %}" title="{{ p.name }}"
+                 class="box-masonry-image with-hover-overlay">
+
+                {% with 'img/portfolio/'|add:p.image as image_path %}
+                  <img src="{% static image_path %}" alt="{{ p.image_alt }}" class="img-responsive">
+                {% endwith %}
+
+              </a>
+
+              <div class="box-masonry-hover-text-header">
+                <h4><a href="{% url 'project_detail' p.id %}">{{ p.name }}</a></h4>
+                <div class="box-masonry-desription">
+                  <p>{{ p.description }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        {% else %}
+
+
+          <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 masonry-item">
+            <div class="box-masonry">
+              <a href="{% url 'project_detail' p.id %}" title="{{ p.name }}"
+                 class="box-masonry-image with-hover-overlay with-hover-icon">
+                {% with 'img/portfolio/'|add:p.image as image_path %}
+                  <img src="{% static image_path %}" alt="{{ p.image_alt }}" class="img-responsive">
+                {% endwith %}
+              </a>
+              <div class="box-masonry-text">
+                <h4><a href="{% url 'project_detail' p.id %}">{{ p.name }}</a></h4>
+                <div class="box-masonry-desription">
+                  <p> {{ p.description }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+        {% endif %}
+
+      {% endfor %}
+
+
+    </div>
+
+  </div>
+
+
+
+  <script>
+
+    document.getElementById("li_about").classList.remove("active");
+    document.getElementById("li_home").classList.remove("active");
+    document.getElementById("li_projects").classList.add("active");
+  </script>
+
+{% endblock %}

@@ -9,7 +9,7 @@
   <title>Diane Delallée {% block title %}  {% endblock %}</title>
 
   {% load staticfiles %}
-  <meta name="description" content="diane, delallée, Pix4D, web developer, Lausanne">
+  <meta name="description" content="diane, delallée, Pix4D, web developer, Lausanne, Python, Django">
   <meta name="robots" content="all,follow">
 
   <!-- Bootstrap-->
@@ -25,13 +25,21 @@
   <link rel="stylesheet" href="{% static 'css/owl.carousel.css' %}">
   <link rel="stylesheet" href="{% static 'css/owl.theme.css' %}">
   <!-- theme stylesheet-->
-  <link rel="stylesheet" href="{% static 'css/style.css' %}" id="theme-stylesheet">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" id="theme-stylesheet">
   <!-- Custom stylesheet - for your changes-->
-  <link rel="stylesheet" href="{% static 'css/custom.css' %}">
+  <link id="first_css" type="text/css" rel="stylesheet" href="/static/css/custom_dark.css">
+  <link id="second_css" type="text/css" rel="stylesheet" href="/static/css/custom_light.css">
   <!-- Favicon-->
-  <link rel="shortcut icon" href="">
-  <link rel="stylesheet" href="{% static 'css/animate.css' %}">
 
+  <link rel="icon" type="image/png" sizes="32x32" href="https://www.fatalement.com/static/img/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="https://www.fatalement.com/static/img/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://www.fatalement.com/static/img/favicon-16x16.png">
+  <link rel="stylesheet" href="{% static 'css/animate.css' %}">
+ <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+
+{% block js_and_css %}
+
+{% endblock %}
 
 </head>
 <body>
@@ -52,7 +60,7 @@
               class="fa fa-align-left"> </i>Menu
           </button>
           <h1 class="small-navbar-heading"><a href="{% url 'home' %}"><img
-              src="{% static 'img/fatalement.png' %}"></a></h1>
+              src="{% static 'img/fatalement.png' %}" alt="fatalement logo"></a></h1>
         </div>
 
         {% block body_container %}  {% endblock %}
@@ -78,6 +86,71 @@
 <script src="{% static 'js/imagesloaded.pkgd.min.js' %}"></script>
 <script src="{% static 'js/owl.carousel.min.js' %}"></script>
 <script src="{% static 'js/front.js' %}"></script>
+
+
+<script>
+
+  document.getElementById('which_theme').addEventListener("click", function () {
+    if (this.checked) {
+      localStorage.setItem("style", "dark");
+    } else {
+      localStorage.setItem("style", "light");
+    }
+    updateTheme();
+  });
+
+
+  $(document).ready(function () {
+    var get_theme = localStorage.getItem("style");
+    if (get_theme) {
+      if (get_theme === 'dark') {
+        document.getElementById('which_theme').checked = true;
+      } else {
+        document.getElementById('which_theme').checked = false;
+      }
+
+    } else {
+      document.getElementById('which_theme').checked = false;
+    }
+    /* Check to see if we have saved a style already, a bit verbose but you get the drift! */
+    var theme = localStorage.getItem('style');
+    if (!theme) {
+      localStorage.setItem('style', 'light');
+    }
+    ;
+
+    updateTheme();
+
+    $('.js-change-style').click(function () {
+      theme = localStorage.getItem('style');
+
+      if (theme === 'light') {
+        theme = 'dark';
+      } else {
+        theme = 'light';
+      }
+
+      localStorage.setItem('style', theme);
+
+      updateTheme();
+      return false;
+    });
+  });
+
+  function updateTheme() {
+    currentTheme = localStorage.getItem('style');
+    if (currentTheme === 'light') {
+      document.getElementById('first_css').setAttribute("href", "/static/css/custom_dark.css");
+      document.getElementById('second_css').setAttribute("href", "/static/css/custom_light.css");
+    } else {
+      document.getElementById('first_css').setAttribute("href", "/static/css/custom_light.css");
+      document.getElementById('second_css').setAttribute("href", "/static/css/custom_dark.css");
+    }
+  }
+
+
+</script>
+
 
 </body>
 </html>

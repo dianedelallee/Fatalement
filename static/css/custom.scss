@@ -1,0 +1,167 @@
+$white-color: #F3F3F3;
+$background-color: #F0F4F4;
+$blue-color: #4b719c;
+$lighter-blue-color: lighten($blue-color, 20%);
+$darker-blue-color: darken($blue-color, 20%);
+$text-color: #ff0000;
+$main-text-color: #555b6e;
+$lighter-text-color: lighten($text-color, 25%);
+$darker-text-color: darken($text-color, 10%);
+$title-color: #66D9EF;
+$orange-color: #f9a78e;
+$grey-color: #AABBBB;
+$light-grey-color: lighten($grey-color, 30%);
+$green-color: #A6E22D;
+
+body {
+  font-family: 'Lato', sans-serif;
+  background-color: $background-color;
+  color: $main-text-color;
+}
+
+.navbar {
+  font-family: 'Roboto', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Roboto', sans-serif;
+  color: $main-text-color;
+  font-weight: 400;
+}
+
+
+a {
+  color: $title-color;
+}
+
+a:hover {
+  color: $lighter-blue-color;
+}
+
+.container-fluid {
+  margin-top: 5vh;
+}
+
+footer {
+  border-top: 2px solid $blue-color;
+  height: 80px;
+  line-height: 80px;
+  text-align: center;
+}
+
+.green{
+  color: $green-color;
+}
+
+// sidebar
+
+
+
+.sidebar-heading {
+  img {
+    width: 200px;
+  }
+
+}
+
+
+.small-navbar-heading img {
+  width: 100px;
+}
+
+// article list
+#no-decoration {
+  text-decoration: none;
+}
+
+.info-search {
+  margin-top: 5vh;
+  margin-bottom: 53vh;
+}
+
+.list_articles {
+  .tags-pill {
+    background-color: $text-color;
+    color: $white-color;
+  }
+
+
+}
+
+.art{
+  h3 a:before{
+    font-family: FontAwesome;
+    content: "\f120";
+
+  }
+
+}
+// article
+.article {
+  font-size: 1.25em;
+  margin-bottom: 10vh;
+  text-align: left;
+
+  .card {
+    box-shadow: 2px 2px 8px $light-grey-color;
+    margin-bottom: 1vh;
+  }
+
+}
+
+.back_to_list {
+  padding-top: 12vh;
+}
+
+//pagination color
+.pagination {
+  li {
+    a, span {
+      border: 1px solid $blue-color;
+      color: $blue-color;
+    }
+    a:hover {
+      color: $lighter-blue-color;
+    }
+  }
+  .page-item.active {
+    .page-link {
+      background-color: $text-color;
+      border: 1px solid $text-color;
+    }
+
+  }
+}
+
+//about page
+.about {
+  ul {
+    list-style-type: none;
+  }
+  a {
+    color: $darker-text-color;
+    transition: font-color 0.4s ease;
+  }
+  a:hover {
+    color: $lighter-text-color;
+    text-decoration: none;
+  }
+  img {
+    width: 150px;
+  }
+  h2, h5 {
+    color: $main-text-color;
+  }
+}
+
+.code {
+  border: 1px solid #000000;
+  background: $main-text-color;
+  color: $grey-color;
+}
+
+@media screen and (max-width: 500px) {
+  .sidebar-heading img {
+    width: 150px;
+  }
+}

@@ -1,0 +1,31 @@
+{% extends 'website/base.html' %}
+
+{% block title %}
+  - Project
+{% endblock %}
+
+
+{% block body_container %}
+
+  {% load staticfiles %}
+  <div class="row">
+
+
+    <div class="article col-md-8 offset-md-2 col-sm-10 offset-sm-1">
+      <h1><i class="fas fa-terminal"></i> {{ project.name }} <a href="{% url 'projects' %}">
+        <button type="button" class="btn btn-danger btn-sm">Back to projects</button>
+      </a>
+
+      </h1>
+      <hr/>
+
+      {{ project.full_text|safe }} <br>
+
+
+    </div>
+
+  </div>
+
+
+
+{% endblock %}

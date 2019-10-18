@@ -1,8 +1,17 @@
-{% extends 'website/base.html' %}
+{% extends 'website/base.html' %}{% load staticfiles %}
 
 {% block title %}
   - About
 {% endblock %}
+
+{% block js_and_css %}
+  <!-- Include the library. -->
+  <script src="https://unpkg.com/github-calendar@latest/dist/github-calendar.min.js"></script>
+
+  <!-- Optionally, include the theme (if you don't want to struggle to write the CSS) -->
+  <link rel="stylesheet" href="{% static 'css/calendar.css' %}">
+{% endblock %}
+
 
 {% block body_container %}
   {% load staticfiles %}
@@ -15,8 +24,8 @@
           <h1 class="animated bounceInDown">Diane Delallée</h1>
           <hr/>
           <div class="col-md-5">
-            <img class="animated bounceInLeft" src="{% static 'img/diane_delallee_portait.jpg' %}">
-            <br><br>
+            <img class="animated bounceInLeft" src="{% static 'img/diane_delallee_portait.jpg' %}"
+                 alt="portrait"> <br><br>
             <div class="animated bounceInUp">
               <h5>Junior Web Developer at <a href="https://pix4d.com/" target="_blank"><span
                   class="green">Pix4d</span></a></h5>
@@ -53,17 +62,31 @@
 
           <div class="col-md-7 animated bounceInRight">
             {{ my_profile.text|safe }}
+
+            <!-- Prepare a container for your calendar. -->
+            <div class="github_stats">
+              <h4>Github statistics</h4>
+              <div class="calendar">
+                <!-- Loading stuff -->Loading the data just for you.
+              </div>
+            </div>
           </div>
 
 
         </div>
       </div>
     </div>
+  </div>
 
 
-    <script>
-      document.getElementById("li_home").classList.remove("active");
-      document.getElementById("li_about").classList.add("active");
+  <script>
+    document.getElementById("li_home").classList.remove("active");
+    document.getElementById("li_projects").classList.remove("active");
+    document.getElementById("li_about").classList.add("active");
 
-    </script>
+
+    // or enable responsive functionality
+    GitHubCalendar(".calendar", "dianedelallee", {responsive: true, global_stats: true});
+
+  </script>
 {% endblock %}

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="static/css/style.css">
+    <link rel="stylesheet" href="website/static/css/custom_dark.css">
+
+<style>
+    code {
+    padding: 2px 4px;
+    font-size: 90%;
+    color: #c7254e;
+    background-color: #f9f2f4;
+    border-radius: 4px;
+}
+    code::before{
+        content: '>_ ';
+    }
+    </style>
+</head>
+
+<body>
+
+    <h2>Git Stash</h2>
+
+    <p> When you have made some modifications and want to achieve another tasks,
+        I could be possible to save your modification by using stash.</p>
+  <pre class="prettyprint"><code class="language-bash">git stas</code>
+    </pre>
+    <p>If you want to give a name to your stash, you can use the keyword <code>save</code></p>
+    
+  <pre class="prettyprint"><code class="language-bash">git stash save 'name of my stash'</code>
+    </pre>
+
+    once you have made your other task you may want to use your stash.
+    if you just want to use your last stash
+<pre class="prettyprint"><code class="language-bash">>git stash pop</code>
+    </pre>
+
+    If you have several stash, you can list them in order to see which one you wnat to unstash.
+  <pre class="prettyprint"><code class="language-bash">git stash list</code>
+    </pre>
+
+    for example to unstash the last one.
+
+<pre class="prettyprint"><code class="language-bash">git stash pop stash@{0} </code>
+    </pre>
+    
+    <danger>
+    Be careful ! if you use the <code>drop</code> keyword, it will clear and delete your stash
+    </danger>
+    
+<pre class="prettyprint"><code class="language-bash">git stash drop stash@{0}</code>
+    </pre>
+    
+    if you have used drop instead of pop, you still have a way to refund your modificaiton.
+    
+    when you use drop, you will see the hash in the terminal. By using the keyword apply, you should be able to apply your stash but it is not recreating it
+    
+   <pre class="prettyprint"><code class="language-bash">git stash apply your hash</code>
+    </pre>
+    
+    if unfortunately, you have close your terminal, you can use the File System COnsistency check to recover your hash.
+  <pre class="prettyprint"><code class="language-bash">git fsck --no-reflogs | awk '/dangling commit/ {print $3}'</code>
+    </pre>
+    
+    You can also filter by date using the until and since arguments
+   <pre class="prettyprint"><code class="language-bash">git show --oneline --since='2018-09-01' --until='2018-10-01' $(git fsck --no-reflogs | awk '/dangling commit/ {print $3}')</code>
+    </pre>
+    
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,206 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+   <meta name="description" content="diane, delallée, Pix4D, web developer, Lausanne, Python, Django">
+
+  <meta content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=no;"
+        name="viewport">
+  <title>Fatalement - Eve</title>
+
+
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css"/>
+
+
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js"></script>
+  <script>
+    $(function () {
+      var station_from = 'Lausanne';
+      var station_to = 'Genève';
+
+      function refresh() {
+        if (station) {
+          if (station_from != 'Lausanne') {
+            station_to = 'Lausanne';
+          } else {
+            station_to = 'Genève';
+          }
+          $.get('http://transport.opendata.ch/v1/connections', {
+            from: station_from,
+            to: station_to,
+            limit: 10
+          }, function (data) {
+            $('#stationboard tbody').empty();
+
+            $(data.connections).each(function () {
+              var prognosis, departure, delay, line = '<tr><td>';
+              departure = moment(this.from.departure);
+              if (this.from.prognosis.departure) {
+                prognosis = moment(this.from.prognosis.departure);
+                delay = (prognosis.valueOf() - departure.valueOf()) / 60000;
+                line += departure.format('HH:mm') + ' <strong>+' + delay + ' min</strong>';
+              } else {
+                line += departure.format('HH:mm');
+              }
+              line += '</td><td>' + this.sections[0].journey.name + '</td><td>' + this.from.platform + '</td><td>' + station_to + '</td><td>' + this.duration.substring(3) + '</td></tr>';
+              $('#stationboard tbody').append(line);
+
+
+            });
+          }, 'json');
+        }
+
+      }
+
+      $('#station').autocomplete({
+        source: function (request, response) {
+          $.get('http://transport.opendata.ch/v1/locations', {
+            query: request.term,
+            type: 'station'
+          }, function (data) {
+            response($.map(data.stations, function (station) {
+              return {
+                label: station.name,
+                station: station
+              }
+            }));
+          }, 'json');
+        },
+        select: function (event, ui) {
+          station_from = ui.item.station.name;
+          refresh();
+        }
+      });
+      setInterval(refresh, 30000); // refresh each 30sec
+      refresh();
+    });
+
+  </script>
+  <style>
+    body {
+      background-color: #1f567c;
+      color: white;
+    }
+
+    .weatherwidget-io {
+      border: 1px solid #febc2f;
+    }
+
+    h3 {
+      margin: 40px 0 20px;
+    }
+
+    .ui-widget,
+    .ui-widget input {
+      font-family: Arial, sans-serif;
+      font-size: 13px;
+    }
+
+    .ui-autocomplete {
+      text-align: left;
+    }
+
+    strong {
+      color: #d10505;
+    }
+
+    .column {
+      float: right;
+    }
+
+    .media {
+      padding-top: 60px;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    td,
+    th {
+      padding: 8px;
+      line-height: 18px;
+      vertical-align: top;
+      border-bottom: 1px solid #DDD;
+    }
+
+    .iframe_travaux {
+      margin-top: 30px;
+      height: 50vh;
+      border: none;
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+<a class="weatherwidget-io" href="https://forecast7.com/fr/46d526d63/lausanne/"
+   data-label_1="LAUSANNE" data-label_2="Suisse" data-font="Roboto" data-icons="Climacons Animated"
+   data-theme="original">LAUSANNE Suisse</a>
+
+<a class="weatherwidget-io" href="https://forecast7.com/fr/46d206d14/geneva/" data-label_1="GENÈVE"
+   data-label_2="Suisse" data-font="Roboto" data-icons="Climacons Animated"
+   data-theme="original">GENÈVE Suisse</a>
+
+<div class="col-md-12">
+
+
+  <article class="col-md-6">
+
+    <h3>CFF horaire</h3>
+    <div class="ui-widget station col-md-8">
+      <input class="form-control" id="station" value="Lausanne" placeholder="Station"/>
+    </div>
+    <div class="media"></div>
+
+    <table id="stationboard" class="col-md-12">
+      <colgroup>
+        <col width="120">
+        <col width="140">
+        <col width="140">
+        <col width="230">
+        <col width="140">
+      </colgroup>
+      <thead>
+      <tr>
+        <th align="left">Horaire</th>
+        <th align="left">Numero</th>
+        <th align="left">Voie</th>
+        <th align="left">Direction</th>
+        <th align="left">Durée</th>
+      </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </article>
+
+  <iframe class="iframe_travaux col-md-6" id="iframe_travaux"
+          src="http://fahrplan.sbb.ch/bin/help.exe/fr?tpl=him_feedticker"></iframe>
+</div>
+
+</body>
+
+<script>
+  !function (d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (!d.getElementById(id)) {
+      js = d.createElement(s);
+      js.id = id;
+      js.src = 'https://weatherwidget.io/js/widget.min.js';
+      fjs.parentNode.insertBefore(js, fjs);
+    }
+  }(document, 'script', 'weatherwidget-io-js');
+
+</script>
+
+</html>
